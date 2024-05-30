@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Reddit+Mono:wght@200..900&display=swap");
+body, #root {
+  height: 100vh;
+  max-height: 100svh;
+  width: 100%;
+}
+
+.container {
+  background: #121212;
+  color: #f0f0f0;
+  font-family: "Reddit Mono", monospace;
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 2fr 7.5fr 0.5fr;
+  padding: 20px 50px;
+  transition: color 0.5s ease, background 0.5s ease, filter 0.8s ease;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+header .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+header .logo h1 {
+  font-size: 3em;
+  font-family: "Kalam", cursive;
+  color: transparent;
+  background: linear-gradient(to right, rgb(40, 250, 40), rgb(80, 200, 80));
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 5px rgb(60, 60, 60));
+  line-height: 100%;
+  cursor: pointer;
+  transition: filter 0.5s ease;
+}
+header .logo h1:hover {
+  filter: drop-shadow(0 0 10px rgb(60, 60, 60));
+}
+header .logo .slogan {
+  font-size: 0.8em;
+  opacity: 50%;
+}
+header .navIcon {
+  font-size: 1.3em;
+  opacity: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+header .navIcon:hover {
+  opacity: 100%;
+  transform: scale(1.1);
+}
+header .navIcon.coming {
+  opacity: 25%;
+  cursor: not-allowed;
+  transform: none;
+}
+
+footer {
+  opacity: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .credits {
+  font-size: 0.8em;
+}
+footer .credits .author {
+  color: rgb(20, 200, 20);
+  transition: color 0.3s ease;
+}
+footer .credits .author:hover {
+  color: rgb(40, 250, 40);
+}
+
+.infoDialog[open] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 75%;
+  padding: 20px 30px;
+  background: rgb(50, 50, 50);
+  border: 5px solid rgb(200, 200, 200);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: rgb(200, 200, 200);
+}
+.infoDialog[open] h1 {
+  color: #f0f0f0;
+  font-size: 2.3em;
+}
+.infoDialog[open] .description {
+  height: 65%;
+  overflow-y: auto;
+  font-size: 0.9em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30px;
+}
+.infoDialog[open] .description strong {
+  color: rgb(20, 200, 20);
+}
+.infoDialog[open] .description em {
+  color: rgb(40, 250, 40);
+}
+.infoDialog[open] .description .separator {
+  width: max-content;
+  font-size: 1.5em;
+  border-bottom: 1px solid transparent;
+  margin-bottom: 15px;
+  transition: border-bottom 0.3s ease;
+}
+.infoDialog[open] .description .separator:hover {
+  border-bottom: 1px solid rgb(40, 250, 40);
+}
+.infoDialog[open] .description section {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.infoDialog[open] .description section p {
+  opacity: 65%;
+  transition: opacity 0.3s ease;
+}
+.infoDialog[open] .description section p:hover {
+  opacity: 100%;
+}
+.infoDialog[open] .description section.about {
+  text-align: center;
+}
+.infoDialog[open] .description section.tutorial {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.infoDialog[open] .description section.tutorial .section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.infoDialog[open] .description section.tutorial .section .title {
+  font-size: 1.1em;
+  font-weight: normal;
+  color: #f0f0f0;
+  text-transform: uppercase;
+}
+.infoDialog[open] .description section.tutorial .section p {
+  width: 95%;
+}
+.infoDialog[open] .description section.tutorial .section button {
+  margin-top: 10px;
+  background: rgb(80, 200, 80);
+  color: rgb(50, 50, 50);
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+.infoDialog[open] .description section.tutorial .section button:hover {
+  background: rgb(20, 200, 20);
+  color: #f0f0f0;
+}
+.infoDialog[open] .description::-webkit-scrollbar {
+  width: 5px;
+  height: 20px;
+}
+.infoDialog[open] .description::-webkit-scrollbar-track {
+  background: transparent;
+}
+.infoDialog[open] .description::-webkit-scrollbar-thumb {
+  background: rgb(200, 200, 200);
+  border-radius: 5px;
+}
+.infoDialog[open] .description::-webkit-scrollbar-thumb:hover {
+  background: #f0f0f0;
+}
+.infoDialog[open] .close {
+  background: transparent;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  color: rgb(200, 200, 200);
+  border: 3px solid rgb(200, 200, 200);
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.5s ease;
+}
+.infoDialog[open] .close:hover {
+  background: rgb(200, 200, 200);
+  color: rgb(50, 50, 50);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+a.reset {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+main .progress-counter {
+  font-size: 1.8em;
+  filter: drop-shadow(0 0 3px rgb(60, 60, 60));
+  transition: filter 0.5s ease;
+}
+main .progress-counter:hover {
+  filter: drop-shadow(0 0 5px rgb(60, 60, 60));
+}
+main .progress-bar {
+  width: 80%;
+  height: 4em;
+  background: rgb(100, 100, 100);
+  border-radius: 12px;
+  padding: 10px 15px;
+}
+main .progress-bar .bar {
+  width: 100%;
+  height: 100%;
+  background: rgb(250, 40, 40);
+  border-radius: 12px;
+}
+main .progress-bar .bar .progress {
+  width: 0;
+  height: 100%;
+  background: repeating-linear-gradient(135deg, rgb(20, 200, 20), rgb(20, 200, 20) 15px, rgb(40, 250, 40) 10px, rgb(40, 250, 40) 40px), rgb(40, 250, 40);
+  border-radius: 12px;
+  filter: drop-shadow(0 0 10px rgb(80, 200, 80));
+  transition: width 0.5s ease;
+}
+main .interactive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+main .interactive .addButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+main .interactive .addButtons button {
+  width: 60px;
+  height: 50px;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(20, 20, 200);
+  border: none;
+  color: #f0f0f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.5s ease, transform 0.3s ease;
+}
+main .interactive .addButtons button:hover {
+  background: rgb(40, 40, 250);
+  transform: scale(1.1);
+}
+main .interactive .addButtons button:active {
+  transform: scale(0.95);
+}
+main .interactive .addButtons button.remove {
+  background: rgb(200, 20, 20);
+}
+main .interactive .addButtons button.remove:hover {
+  background: rgb(250, 40, 40);
+}
+main .interactive .customAmount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+main .interactive .customAmount input {
+  width: 65px;
+  height: 40px;
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 4px;
+  text-align: center;
+  filter: drop-shadow(0 0 3px rgb(60, 60, 60));
+  transition: filter 0.5s ease;
+}
+main .interactive .customAmount input:hover {
+  filter: drop-shadow(0 0 5px rgb(60, 60, 60));
+}
+main .interactive .customAmount input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+main .interactive .customAmount button {
+  padding: 5px 15px;
+  font-size: 1.3em;
+  border-radius: 8px;
+  background: rgb(20, 20, 200);
+  border: none;
+  color: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease, filter 0.5s ease;
+}
+main .interactive .customAmount button[disabled] {
+  filter: saturate(50%);
+  cursor: not-allowed;
+}
+main .interactive .customAmount button:hover:not([disabled]) {
+  background: rgb(40, 40, 250);
+}
+main .interactive .customAmount button:active:not([disabled]) {
+  transform: scale(0.95);
+}
+main .interactive .shortAmount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+main .interactive .shortAmount button {
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #f0f0f0;
+  cursor: pointer;
+  transition: filter 0.5s ease, transform 0.3s ease;
+}
+main .interactive .shortAmount button:hover {
+  filter: brightness(120%);
+  transform: scale(1.1);
+}
+main .interactive .shortAmount button:active {
+  transform: scale(0.95);
+}
+main .interactive .shortAmount button.to0 {
+  background: rgb(250, 40, 40);
+}
+main .interactive .shortAmount button.to50 {
+  background: #919128;
+}
+main .interactive .shortAmount button.to100 {
+  background: rgb(40, 250, 40);
+}

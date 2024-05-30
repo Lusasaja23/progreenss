@@ -1,0 +1,170 @@
+@use './styles/sass/structure.scss';
+@use './styles/sass/reset.scss';
+@use './styles/sass/variables.scss';
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    
+    & .progress-counter {
+        font-size: 1.8em;
+        filter: drop-shadow(0 0 3px variables.$bright);
+        transition: filter 0.5s ease;
+        &:hover {
+            filter: drop-shadow(0 0 5px variables.$bright);
+        }
+    }
+
+    & .progress-bar {
+        width: 80%;
+        height: 4em;
+        background: rgb(100 100 100);
+        border-radius: 12px;
+        padding: 10px 15px;
+        
+        & .bar {
+            width: 100%;
+            height: 100%;
+            background: variables.$red;
+            border-radius: 12px;
+
+            & .progress {
+                width: 0;
+                height: 100%;
+                background: repeating-linear-gradient(135deg, variables.$darkGreen, variables.$darkGreen 15px, variables.$green 10px, variables.$green 40px),
+                            variables.$green;
+                border-radius: 12px;
+                filter: drop-shadow(0 0 10px variables.$lightGreen);
+                transition: width 0.5s ease;
+            }
+        }
+    }
+
+    & .interactive {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+
+        & .addButtons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            & button {
+                width: 60px;
+                height: 50px;
+                font-size: 1.1em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: variables.$darkBlue;
+                border: none;
+                color: variables.$white;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.5s ease, transform 0.3s ease;
+                &:hover {
+                    background: variables.$blue;
+                    transform: scale(1.1);
+                }
+                &:active {
+                    transform: scale(0.95);
+                }
+                &.remove {
+                    background: variables.$darkRed;
+                    &:hover {
+                        background: variables.$red;
+                    }
+                }
+            }
+        }
+
+        & .customAmount {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+
+            & input {
+                width: 65px;
+                height: 40px;
+                padding: 10px;
+                font-size: 1.2em;
+                border-radius: 4px;
+                text-align: center;
+                filter: drop-shadow(0 0 3px variables.$bright);
+                transition: filter 0.5s ease;
+                &:hover {
+                    filter: drop-shadow(0 0 5px variables.$bright);
+                }
+
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
+            }
+
+            & button {
+                padding: 5px 15px;
+                font-size: 1.3em;
+                border-radius: 8px;
+                background: variables.$darkBlue;
+                border: none;
+                color: variables.$white;
+                cursor: pointer;
+                transition: background 0.3s ease, transform 0.1s ease, filter 0.5s ease;
+                &[disabled] {
+                    filter: saturate(50%);
+                    cursor: not-allowed;
+                }
+                &:hover:not([disabled]) {
+                    background: variables.$blue;
+                }
+                &:active:not([disabled]) {
+                    transform: scale(0.95);
+                }
+            }
+        }
+
+        & .shortAmount {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            & button {
+                font-size: 1.1em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 8px;
+                color: variables.$white;
+                cursor: pointer;
+                transition: filter 0.5s ease, transform 0.3s ease;
+                &:hover {
+                    filter: brightness(120%);
+                    transform: scale(1.1);
+                }
+                &:active {
+                    transform: scale(0.95);
+                }
+
+                &.to0 {
+                    background: variables.$red;
+                }
+                &.to50 {
+                    background: mix(variables.$red, variables.$green, 50%)
+                }
+                &.to100 {
+                    background: variables.$green;
+                }
+            }
+        }
+    }
+}

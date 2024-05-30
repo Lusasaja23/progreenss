@@ -1,0 +1,64 @@
+@use 'variables.scss';
+
+.container.light {
+    background: variables.$white;
+    color: variables.$black;
+
+    & header {
+        & .logo {
+            & h1 {
+                filter: drop-shadow(0 0 5px variables.$shadow);
+                transition: filter 0.5s ease;
+                &:hover {
+                    filter: drop-shadow(0 0 10px variables.$shadow);
+                }
+            }
+            & .slogan {
+                opacity: 60%;
+            }
+        }
+        & .navIcon {
+            opacity: 60%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            &:hover {
+                opacity: 100%;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    & main {
+        & .progress-counter {
+            filter: drop-shadow(0 0 5px variables.$shadow);
+            transition: filter 0.5s ease;
+            &:hover {
+                filter: drop-shadow(0 0 10px variables.$shadow);
+        }
+        }
+
+        & .interactive {
+            & .customAmount {
+                & input {
+                    filter: drop-shadow(0 0 5px variables.$shadow);
+                    transition: filter 0.5s ease;
+                    &:hover {
+                        filter: drop-shadow(0 0 10px variables.$shadow);
+                    }
+                }
+            }
+        }
+    }
+
+    & footer {
+        opacity: 75%;
+        & .credits {
+            & .author {
+                color: variables.$darkGreen;
+                transition: filter 0.3s ease;
+                &:hover {
+                    filter: drop-shadow(0 0 2.5px variables.$shadow);
+                }
+            }
+        }
+    }
+}

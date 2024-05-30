@@ -1,0 +1,15 @@
+{
+    "name": "Progreenss",
+    "short_name": "Progreenss",
+    "icons": [
+        {
+            "src": "/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#303030",
+    "background_color": "#303030",
+    "start_url": "https://progreenssls.vercel.app",
+    "display": "standalone"
+}

@@ -1,0 +1,27 @@
+// -----[ COLORS ]-----
+$black: #121212;
+$white: #f0f0f0;
+
+$dark: rgb(50 50 50);
+$light: rgb(200 200 200);
+
+$red: rgb(250 40 40);
+$green: rgb(40 250 40);
+$blue: rgb(40 40 250);
+
+$lightGreen: rgb(80 200 80);
+$lightBlue: rgb(80 80 200);
+$lightRed: rgb(200 80 80);
+
+$darkGreen: rgb(20 200 20);
+$darkBlue: rgb(20 20 200);
+$darkRed: rgb(200 20 20);
+
+$shadow: rgba(0, 0, 0, 0.25);
+$bright: rgb(60 60 60);
+
+// ----- [ FONTS ] -----
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Reddit+Mono:wght@200..900&display=swap');
+
+$header: 'Kalam', cursive;
+$all: 'Reddit Mono', monospace;
