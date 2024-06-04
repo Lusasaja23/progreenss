@@ -48,6 +48,10 @@ main {
         align-items: center;
         justify-content: center;
         gap: 40px;
+        @media (width < 800px) {
+            flex-direction: column;
+            gap: 20px;
+        }
 
         & .addButtons {
             display: flex;

@@ -18,7 +18,7 @@ export default function InfoDialog({toggleInfoDialog, showInfoDialog}) {
             <article className="description">
                 <h2 className="separator"><a tabIndex={0} className="reset" href="">Acerca de</a></h2>
                 <section className="about">
-                    <p><strong>Progreenss</strong> es la <em>barra de progreso interactiva</em> que puedes <em>modificar</em> y <em>probar</em> a tu gusto. Puedes convertirla en una serpiente, un pez, una zebra e incluso en un monstruo.</p>
+                    <p><strong>Progreenss</strong> es la <em>barra de progreso interactiva</em> que puedes <em>modificar</em> y <em>probar</em> a tu gusto. {/* Puedes convertirla en una serpiente, un pez, una zebra e incluso en un monstruo. */}</p>
                 </section>
                 <h2 className="separator">Tutorial</h2>
                 <section className="tutorial">

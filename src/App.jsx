@@ -32,11 +32,18 @@ export default function ParentComponent() {
     };
 
     /* SOUND EFFECT */
-    const [mute, setMute] = useState(false);
+    const [mute, setMute] = useState(() => {
+        const savedMute = localStorage.getItem('mute');
+        return savedMute === 'true';
+    });
 
     const toggleMute = () => {
         setMute(prevMute => !prevMute);
     };
+
+    useEffect(() => {
+        localStorage.setItem('mute', mute);
+    }, [mute]);
 
     useEffect(() => {
         if (counter === 100) {

@@ -13,7 +13,9 @@ export default function Header({toggleMute, mute, toggleInfoDialog}) {
     return (
         <header>
             <NavIcon iconName="palette" coming={true}></NavIcon>
-            <NavIcon iconName='github' iconType='logo'></NavIcon>
+            <a href="https://github.com/Lusasaja23/progreenss" target="_blank" rel="noopener noreferrer">
+                <NavIcon iconName='github' iconType='logo'></NavIcon>
+            </a>
             <Logo></Logo>
             <NavIcon iconName='info-circle' onClick={handleShowInfoDialog}></NavIcon>
             <NavIcon iconName={mute ? 'volume' : 'volume-full'} onClick={handleSound}></NavIcon>

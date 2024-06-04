@@ -1,22 +1,25 @@
 @use 'variables';
 
 body, #root {
-    height: 100vh;
+    min-height: 100vh;
     max-height: 100svh;
     width: 100%;
 }
 
 .container {
+    width: 100%;
+    min-height: 100vh;
     background: variables.$black;
     color: variables.$white;
     font-family: variables.$all;
-    width: 100%;
-    height: 100%;
-    width: 100%;
     display: grid;
     grid-template-rows: 2fr 7.5fr 0.5fr;
     padding: 20px 50px;
     transition: color 0.5s ease, background 0.5s ease, filter 0.8s ease;
+    @media (width < 700px) {
+        padding: 30px 25px;
+        grid-template-rows: 1.5fr 8fr 0.5fr;
+    }
 }
 
 header {
@@ -41,6 +44,9 @@ header {
             line-height: 100%;
             cursor: pointer;
             transition: filter 0.5s ease;
+            @media (width < 700px) {
+                font-size: 2.5em
+            }
             &:hover {
                 filter: drop-shadow(0 0 10px variables.$bright);
             }
@@ -49,7 +55,19 @@ header {
         & .slogan {
             font-size: 0.8em;
             opacity: 50%;
+            @media (width < 700px) {
+                font-size: 0.7em;
+            }
+            @media (width < 600px) {
+                font-size: 0.65em;
+            }
         }
+    }
+    @media (width < 700px) {
+        gap: 35px;
+    }
+    @media (width < 700px) {
+        gap: 30px;
     }
 
     & .navIcon {
@@ -57,6 +75,12 @@ header {
         opacity: 50%;
         cursor: pointer;
         transition: opacity 0.3s ease, transform 0.3s ease;
+        @media (width < 700px) {
+            font-size: 1.2em;
+        }
+        @media (width < 600px) {
+            font-size: 1.1em;
+        }
         &:hover {
             opacity: 100%;
             transform: scale(1.1);
@@ -105,6 +129,20 @@ footer {
     align-items: center;
     gap: 20px;
     color: variables.$light;
+    font-family: variables.$all;
+    @media (width < 800px) {
+        width: 80%;
+        height: 70%;
+    }
+    @media (width < 700px) {
+        width: 80%;
+        height: 75%;
+    }
+    @media (width < 600px) {
+        width: 85%;
+        height: 80%;
+    }
+
 
     & h1 {
         color: variables.$white;

@@ -1,9 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function CustomAmount({ counter, updateCounter }) {
     const [inputValue, setInputValue] = useState(counter.toString());
-    const incrementTimer = useRef(null);
-    const decrementTimer = useRef(null);
 
     useEffect(() => {
         setInputValue(counter.toString());
@@ -32,17 +30,13 @@ export default function CustomAmount({ counter, updateCounter }) {
         <>
             <button
                 disabled={counter <= 0}
-                onClick={() => updateCounter(-1)}
-            >
-                -
-            </button>
+                onClick={updateCounter(-1)}
+            >-</button>
             <input type="number" value={inputValue} onChange={handleChange} />
             <button
                 disabled={counter >= 100}
-                onClick={() => updateCounter(1)}
-            >
-                +
-            </button>
+                onClick={updateCounter(1)}
+            >+</button>
         </>
     );
 }
