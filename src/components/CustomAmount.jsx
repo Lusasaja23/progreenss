@@ -30,12 +30,12 @@ export default function CustomAmount({ counter, updateCounter }) {
         <>
             <button
                 disabled={counter <= 0}
-                onClick={updateCounter(-1)}
+                onClick={() => updateCounter(-1)}
             >-</button>
             <input type="number" value={inputValue} onChange={handleChange} />
             <button
                 disabled={counter >= 100}
-                onClick={updateCounter(1)}
+                onClick={() => updateCounter(1)}
             >+</button>
         </>
     );
